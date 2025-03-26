@@ -1,0 +1,178 @@
+/* 
+  OpenAI o3 To-Do App Styles
+  This stylesheet provides a modern, responsive layout and interactive visual elements
+  for a sophisticated single-page to-do application powered by the OpenAI o3 model.
+*/
+
+/* Reset default browser styling for consistency */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f7f7f7;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+header p {
+  font-size: 1rem;
+  color: #555;
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Task Input Form */
+.task-input form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.task-input input[type="text"],
+.task-input input[type="date"],
+.task-input select {
+  flex: 1 1 auto;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.task-input button {
+  padding: 10px 15px;
+  border: none;
+  background: #007bff;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.task-input button:hover {
+  background: #0056b3;
+}
+
+/* Task Filters */
+.task-filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.task-filters button {
+  padding: 8px 12px;
+  border: none;
+  background: #6c757d;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.task-filters button:hover {
+  background: #5a6268;
+}
+
+.task-filters input[type="text"] {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Tasks Container */
+#tasksContainer {
+  list-style: none;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  transition: background 0.3s ease;
+}
+
+.task-item:hover {
+  background: #f1f1f1;
+}
+
+.task-details {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+}
+
+.task-details input[type="checkbox"] {
+  transform: scale(1.2);
+  margin-right: 10px;
+}
+
+.task-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.task-info .name {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.task-info .meta {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.task-delete {
+  background: transparent;
+  border: none;
+  color: #dc3545;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+/* Footer Styling */
+footer {
+  text-align: center;
+  padding: 15px 0;
+  color: #777;
+  font-size: 0.9rem;
+  margin-top: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .task-input form {
+    flex-direction: column;
+  }
+  
+  .task-filters {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,44 @@
+<![CDATA[<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenAI o3 To-Do App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>OpenAI o3 To-Do App</h1>
+    <p>Experience smart task management with innovative interactive features.</p>
+  </header>
+  <main>
+    <section class="task-input">
+      <!-- Task input form -->
+      <form id="taskForm">
+        <input type="text" id="taskName" placeholder="Enter new task" required>
+        <input type="date" id="dueDate">
+        <select id="priority">
+          <option value="normal">Normal</option>
+          <option value="high">High</option>
+          <option value="low">Low</option>
+        </select>
+        <button type="submit">Add Task</button>
+        <button type="button" id="suggestTaskBtn">Suggest Task</button>
+      </form>
+    </section>
+    <section class="task-filters">
+      <!-- Task sorting and filtering -->
+      <button id="sortByDate">Sort by Due Date</button>
+      <button id="sortByPriority">Sort by Priority</button>
+      <input type="text" id="searchTask" placeholder="Search tasks">
+    </section>
+    <section id="tasksContainer">
+      <!-- Dynamic tasks will be rendered here -->
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 OpenAI o3 Todo App. All rights reserved.</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>]]>

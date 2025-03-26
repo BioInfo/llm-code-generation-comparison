@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonnet 3.7 Smart Task Manager</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="light-mode">
+    <div class="app-container">
+        <header>
+            <div class="app-header">
+                <div class="logo-container">
+                    <h1><span class="highlight">Sonnet</span> Tasks</h1>
+                    <p class="tagline">Powered by Sonnet 3.7</p>
+                </div>
+                <div class="theme-toggle">
+                    <button id="theme-toggle-btn" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                        <i class="fas fa-sun"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="stats-bar">
+                <div class="stat">
+                    <span id="total-tasks">0</span>
+                    <label>Total</label>
+                </div>
+                <div class="stat">
+                    <span id="completed-tasks">0</span>
+                    <label>Completed</label>
+                </div>
+                <div class="stat">
+                    <span id="pending-tasks">0</span>
+                    <label>Pending</label>
+                </div>
+                <div class="stat">
+                    <span id="overdue-tasks">0</span>
+                    <label>Overdue</label>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="task-input-section">
+                <form id="task-form">
+                    <div class="input-group">
+                        <input type="text" id="task-input" placeholder="What needs to be done?" required>
+                        <button type="submit" class="add-task-btn">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                    <div class="task-details">
+                        <div class="detail-group">
+                            <label for="task-due-date">Due Date</label>
+                            <input type="datetime-local" id="task-due-date">
+                        </div>
+                        <div class="detail-group">
+                            <label for="task-priority">Priority</label>
+                            <select id="task-priority">
+                                <option value="low">Low</option>
+                                <option value="medium" selected>Medium</option>
+                                <option value="high">High</option>
+                            </select>
+                        </div>
+                        <div class="detail-group">
+                            <label for="task-category">Category</label>
+                            <select id="task-category">
+                                <option value="personal">Personal</option>
+                                <option value="work">Work</option>
+                                <option value="health">Health</option>
+                                <option value="education">Education</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </section>
+
+            <section class="task-controls">
+                <div class="filter-sort">
+                    <div class="filter-group">
+                        <label for="filter-status">Status</label>
+                        <select id="filter-status">
+                            <option value="all" selected>All</option>
+                            <option value="active">Active</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="filter-priority">Priority</label>
+                        <select id="filter-priority">
+                            <option value="all" selected>All</option>
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="filter-category">Category</label>
+                        <select id="filter-category">
+                            <option value="all" selected>All</option>
+                            <option value="personal">Personal</option>
+                            <option value="work">Work</option>
+                            <option value="health">Health</option>
+                            <option value="education">Education</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="sort-by">Sort By</label>
+                        <select id="sort-by">
+                            <option value="date-added">Date Added</option>
+                            <option value="due-date">Due Date</option>
+                            <option value="priority">Priority</option>
+                            <option value="alphabetical">Alphabetical</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="action-buttons">
+                    <button id="clear-completed" class="action-btn">
+                        <i class="fas fa-check-double"></i> Clear Completed
+                    </button>
+                    <button id="generate-suggestions" class="action-btn">
+                        <i class="fas fa-lightbulb"></i> Suggest Tasks
+                    </button>
+                </div>
+            </section>
+
+            <section class="tasks-container">
+                <h2>Your Tasks</h2>
+                <div id="tasks-list">
+                    <!-- Tasks will be added here dynamically -->
+                </div>
+            </section>
+
+            <section id="suggestions-panel" class="suggestions-panel hidden">
+                <div class="suggestions-header">
+                    <h3>Task Suggestions</h3>
+                    <button id="close-suggestions" class="close-btn">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div id="suggestions-list">
+                    <!-- Suggestions will be added here dynamically -->
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Drag and drop tasks to reorder • Double-click to edit</p>
+            <p class="copyright">© 2025 Sonnet 3.7 Demo</p>
+        </footer>
+    </div>
+
+    <div id="task-edit-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Edit Task</h3>
+                <button id="close-modal" class="close-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="edit-task-form">
+                <div class="input-group">
+                    <input type="text" id="edit-task-input" placeholder="Task description" required>
+                </div>
+                <div class="task-details">
+                    <div class="detail-group">
+                        <label for="edit-task-due-date">Due Date</label>
+                        <input type="datetime-local" id="edit-task-due-date">
+                    </div>
+                    <div class="detail-group">
+                        <label for="edit-task-priority">Priority</label>
+                        <select id="edit-task-priority">
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                    <div class="detail-group">
+                        <label for="edit-task-category">Category</label>
+                        <select id="edit-task-category">
+                            <option value="personal">Personal</option>
+                            <option value="work">Work</option>
+                            <option value="health">Health</option>
+                            <option value="education">Education</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="detail-group">
+                        <label for="edit-task-notes">Notes</label>
+                        <textarea id="edit-task-notes" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" id="delete-task" class="delete-btn">
+                        <i class="fas fa-trash"></i> Delete
+                    </button>
+                    <button type="submit" class="save-btn">
+                        <i class="fas fa-save"></i> Save
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

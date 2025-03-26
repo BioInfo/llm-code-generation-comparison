@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonnet Tasks - Smart Task Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>Sonnet Tasks <span class="version">3.5</span></h1>
+            <div class="header-controls">
+                <button id="viewToggle" class="icon-btn" title="Toggle View">
+                    <i class="fas fa-columns"></i>
+                </button>
+                <button id="analyticsBtn" class="icon-btn" title="Task Analytics">
+                    <i class="fas fa-chart-line"></i>
+                </button>
+            </div>
+        </header>
+
+        <div class="smart-input-container">
+            <div class="input-wrapper">
+                <input type="text" id="taskInput" placeholder="Add a task... (Try: 'Meeting with John tomorrow at 2pm #work @high')" autofocus>
+                <button id="addTask" class="primary-btn">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+            <div class="smart-suggestions" id="smartSuggestions"></div>
+        </div>
+
+        <div class="workspace">
+            <div class="lists-container">
+                <div class="list-column" id="todoList">
+                    <h2>Tasks <span class="task-count" id="taskCount">0</span></h2>
+                    <div class="tasks-wrapper" id="tasksContainer"></div>
+                </div>
+
+                <div class="list-column" id="completedList">
+                    <h2>Completed <span class="task-count" id="completedCount">0</span></h2>
+                    <div class="tasks-wrapper" id="completedContainer"></div>
+                </div>
+            </div>
+
+            <div class="analytics-panel" id="analyticsPanel">
+                <h2>Task Analytics</h2>
+                <div class="analytics-content">
+                    <div class="stat-card">
+                        <h3>Productivity Score</h3>
+                        <div class="score" id="productivityScore">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Category Distribution</h3>
+                        <div class="chart" id="categoryChart"></div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Completion Trends</h3>
+                        <div class="chart" id="trendsChart"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="keyboard-shortcuts" id="keyboardShortcuts">
+            <h3>Keyboard Shortcuts</h3>
+            <ul>
+                <li><kbd>Ctrl</kbd> + <kbd>Enter</kbd> Add task</li>
+                <li><kbd>Alt</kbd> + <kbd>A</kbd> Toggle analytics</li>
+                <li><kbd>Alt</kbd> + <kbd>V</kbd> Toggle view</li>
+                <li><kbd>Alt</kbd> + <kbd>?</kbd> Show/hide shortcuts</li>
+            </ul>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
