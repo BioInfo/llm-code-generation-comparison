@@ -1,0 +1,28 @@
+:root {
+    --primary: #4a90e2;
+    --urgent: #ff4757;
+    --high: #ffa502;
+    --medium: #2ed573;
+    --low: #dfe4ea;
+}
+
+.task-card {
+    background: white;
+    border-left: 4px solid var(--priority-color);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.priority-marker {
+    width: 8px;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.category-filter {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+}

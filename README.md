@@ -9,6 +9,7 @@ This repository contains a comparison of different Large Language Models (LLMs) 
 - **DeepSeek**
 - **OpenAI o3**
 - **Sonnet 3.5**
+- **Llama Maverick**
 
 ## Project Structure
 
@@ -19,6 +20,7 @@ Each model's implementation is in its own directory:
 - `todo-app-deepseekV3/` - DeepSeek implementation
 - `todo-app-sonnet35/` - Sonnet 3.5 implementation
 - `todo-app-sonnet37/` - Sonnet 3.7 implementation
+- `todo-app-llama-maverick/` - Llama Maverick implementation
 
 ## Key Findings
 
